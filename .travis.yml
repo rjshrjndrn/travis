@@ -2,15 +2,15 @@ language: bash
 services: docker
 install: false
 before_script:
-- env | sort
-- image='hello-world'
+  - env | sort
+  - image='hello-world'
 script:
   - docker build -t rjshrjndrn/ansible:2.4.1 .
-- docker run -d -p 8000:8000 rjshrjndrn/ansible:2.4.1
-- docker ps
-- "./test.sh"
+  - docker run -d -p 8000:8000 rjshrjndrn/ansible:2.4.1
+  - docker ps
+  - "./test.sh"
 after_script:
-- docker images
+  - docker images
 env:
   global:
   - secure: e/2obBaf9LZ4KPIk4XR/bvVuT2m5TpIyo9Hy7hyH1vKUYEK7aaCLsew2M/ZvIXaNN9ehswd/wwTLT16+24ZWiY7YXGCTEi0UbrBNSEp7oNUWnE9s/vetXoFChfpXtmJyGSkaNhJJLHP+3q4bgGXGOv0Wctn3UIpghQx3zkBUNwd3UURNQB3xSQX/af+xvQfp/ILHPxEgiwAvHmRR26AdNSANxbcziDnZg9EO2J8iTn2x14ckiryMrP8JAXI6OGKtiS34W3prEam70ztv6JUDDz5qHmbvaKooHSdNufXcA7/FfoWp+z3g8+9QKtSN2ElHt8BHonre9gHYVpEkESp2MBPQP2xAlgbKLlZOIB+TF7O34TIMTh47miwqKwwr5H3SVu8/Ecn+Yrrk42xrXf5C9buEL7mdqmh0tyw+uSRhl4419uL8WvF7PCrTSIao+PQUunSf7S/dR3OCeHc1TvQmZ1wEQWjdY97CD7skXgS0i1hMVZwBluln1w3ZmqMe7sTvI/hjCA4cjU9MxM/tQVKL0/2LB8bQfnrwIHqW00Z/ccOtpAsr30ZV2FYH4HqYFbOEpnTghV6KtcvJlMMC8dEywlaYKhsE8ZKgkOJo00IVRBxJbSXYjsCSsVPiCcE5ibo7Vngdkg9/g7ujwIoDnnc7/rLxdHtCY4jC+3APNzjSmAA=
