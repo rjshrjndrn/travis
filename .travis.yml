@@ -9,7 +9,7 @@ script:
 - docker build -t rjshrjndrn/ansible:2.4.1 .
 - docker run -d -p 8000:8000 rjshrjndrn/ansible:2.4.1
 - docker ps
-- "./test.sh"
+- bash -x test.sh
 after_script:
 - docker images
 deploy:

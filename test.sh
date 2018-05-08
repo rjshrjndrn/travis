@@ -1,4 +1,6 @@
 #!/bin/bash
 nc -zv localhost 8000
-echo $USER_PWD"
-echo $USER_NAME"
+echo username
+echo $USER_NAME
+echo userpassword
+echo $USER_PWD
