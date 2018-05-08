@@ -1,3 +1,15 @@
-language: python3
-install: true
-script: test.py
+
+language: bash
+services: docker
+
+install: false
+
+before_script:
+  - env | sort
+  - image='hello-world'
+
+script:
+  - ./test.sh
+
+after_script:
+  - docker images
