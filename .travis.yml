@@ -9,6 +9,8 @@ before_script:
   - image='hello-world'
 
 script:
+  - docker build -t test:latest .
+  - docker run -d test:latest
   - ./test.sh
 
 after_script:
