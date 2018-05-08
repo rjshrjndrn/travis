@@ -10,7 +10,7 @@ before_script:
 
 script:
   - docker build -t test:latest .
-  - docker run -d test:latest -p 8000:8000
+  - docker run -d -p 8000:8000 test:latest 
   - docker ps 
   - ./test.sh
 
