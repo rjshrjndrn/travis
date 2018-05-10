@@ -5,12 +5,13 @@ env:
   global: 
     - secure: iCHMLKAn0SFX70aYeT6Uz+ywXFiAqNuI+VN94nH3ytCbEstm1DOkZ4dQcd/Ua18TPrVnQaXzqdlkKUZa11bpBb6l+DjYmLv/jm44cSfXfLP4gGrPjqTOOlmn3BIyWeeoT0hO7JBN8/ThzSfV4OsR2ad/y8Kyxo/2jT6NuQL0BMh285ZZmyxlCXeASurqOqJ1hptdIgoKoaX5dHI/28Aaa8GssDeFRGmWKmYqLjb/cdkVonLjPpyfWGaj93GeWwyCiwWZuzdk68waYgVzYA5RnMctzhqsoQO7EmnzdZa4JaqbuWEINCIb6WGVpMlkPdurLw/HWT/lxR5RZDg6bRnOwn20nxRf/gZ+Bg4SKuG35bgwM6bIXdP9/gW8QyyYYOWx9T9eCtWZ+3g40qCMhb9kwN7Py0fCTOgPbm0RaDNCeDeMy0p1GhLAXQwp+3XqbHe0PpXFuo3lsJy9leYyw1BJ6sqeRLyxge8lj+GzGUusdPIcuBvqRAN+33MKqTkG4xVq0e0jyRFwaC2MXQIrSHELzUasTBScyr6rD+sZWAcH+K7/zAa05xV4DNIjRvd4YfED4NouRwuFO8irdXsCdwBT2nZzkyuCLyo1kX0wLEFBctZzs8J4xCiL5GHo0CNVglm0dF+vAhcT5VJaP3mqmU8vVaX/TlMStYgYG5VMijPA0Kk=
 script:
-- docker build -t rjshrjndrn/ansible:2.4.1 .
-- docker run -d -p 8000:8000 rjshrjndrn/ansible:2.4.1
-- docker ps
-- bash -x test.sh
+  - docker build -t rjshrjndrn/ansible:2.4.1 .
+  - docker run -d -p 8000:8000 rjshrjndrn/ansible:2.4.1
+  - docker login -u rjshrjndrn -p $pass && docker push rjshrjndrn/ansible:2.4.1
+  - docker ps
+  - bash -x test.sh
 after_script:
-- docker images
+  - docker images
 deploy:
   provider: script
-  script: docker login -u $USER_NAMEs -p $USER_PWD && docker push rjshrjndrn/ansible:2.4.1
+  script: docker login -u rjshrjndrn -p $pass && docker push rjshrjndrn/ansible:2.4.1
