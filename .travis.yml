@@ -16,5 +16,3 @@ after_script:
 deploy:
   provider: script
   script: docker login -u $USER_NAMEs -p $USER_PWD && docker push rjshrjndrn/ansible:2.4.1
-  on:
-    branch: master
